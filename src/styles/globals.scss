@@ -2,6 +2,13 @@
 
 /* GLOBAL RESETS AND STYLING */
 
+html,
+body {
+  height: 100%;
+  // overflow: hidden;
+}
+
+/* GLOBAL RESETS AND STYLING */
 *,
 *::after,
 *::before {
@@ -13,6 +20,5 @@
 body {
   font-family: var(--primary-font);
   line-height: var(--text-line-height);
-  // background-color: var(--primary-black);
   background-color: var(--grey-cloud);
 }

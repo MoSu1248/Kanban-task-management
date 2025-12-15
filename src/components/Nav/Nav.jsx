@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import "./Nav.scss";
 import Board from "../../assets/icon-board.svg?react";
 import data from "../../data/data.json";
-import { userBoardStore } from "../Stores/useBoardStore";
-import { useNavTogglerStore } from "../Stores/useNavTogglerStore";
+import { userBoardStore } from "../stories/useBoardStore";
+import { useNavTogglerStore } from "../stories/useNavTogglerStore";
 
 export default function Nav() {
   const dataBoards = data.boards;

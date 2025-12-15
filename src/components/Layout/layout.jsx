@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
+import Header from "../header/Header";
+import Navbar from "../navbar/Navbar";
 import "./layout.scss";
-import { useNavTogglerStore } from "../Stores/useNavTogglerStore";
-import NavToggleShow from "../NavToggle/NavToggleShow";
+import { useNavTogglerStore } from "../stories/useNavTogglerStore";
+import NavToggleShow from "../navToggle/NavToggleShow";
 
 export default function Layout({ children }) {
   const navDisplay = useNavTogglerStore((state) => state.navDisplay);

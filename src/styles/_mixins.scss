@@ -41,3 +41,14 @@
   background-color: var(--primary-blue);
   cursor: pointer;
 }
+
+@mixin input-styling {
+  font-family: var(--primary-font);
+  padding: 1rem;
+  resize: none;
+  border-radius: 6px;
+  border: 1px solid var(--grey-slate-dim);
+  &::placeholder {
+    @include heading((body-l), var(--grey-slate-dim));
+  }
+}

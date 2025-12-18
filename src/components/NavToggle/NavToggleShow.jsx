@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavToggle.scss";
 import ShowNav from "../../assets/icon-show-sidebar.svg?react";
-import { useNavTogglerStore } from "../stories/useNavTogglerStore";
+import { useNavTogglerStore } from "../stores/useNavTogglerStore";
 
 export default function NavToggleShow() {
   const toggleNav = useNavTogglerStore((state) => state.toggleNav);

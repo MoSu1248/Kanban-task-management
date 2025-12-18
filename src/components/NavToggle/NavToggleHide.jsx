@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./NavToggle.scss";
 import ToggleIcon_hide from "../../assets/icon-hide-sidebar.svg?react";
-import { useNavTogglerStore } from "../stories/useNavTogglerStore";
+import { useNavTogglerStore } from "../stores/useNavTogglerStore";
 
 export default function NavToggle() {
   const [isChecked, setIsChecked] = useState(false);

@@ -1,8 +1,9 @@
 import React from "react";
 import "./Home.scss";
 import Empty from "../components/Empty/Empty";
-import { userBoardStore } from "../components/Stores/useBoardStore";
+import { userBoardStore } from "../components/stores/useBoardStore";
 import data from "../data/data.json";
+import Overlays from "../components/overlay/Overlays";
 
 export default function Home() {
   const { selectedBoardId } = userBoardStore();

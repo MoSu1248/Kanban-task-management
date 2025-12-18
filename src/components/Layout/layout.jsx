@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../header/Header";
 import Navbar from "../navbar/Navbar";
 import "./layout.scss";
-import { useNavTogglerStore } from "../stories/useNavTogglerStore";
+import { useNavTogglerStore } from "../stores/useNavTogglerStore";
 import NavToggleShow from "../navToggle/NavToggleShow";
+import Overlays from "../overlay/Overlays";
 
 export default function Layout({ children }) {
   const navDisplay = useNavTogglerStore((state) => state.navDisplay);
@@ -13,6 +14,7 @@ export default function Layout({ children }) {
       <NavToggleShow />
       <Header />
       <Navbar />
+      <Overlays />
       <main className="content">{children}</main>
     </div>
   );

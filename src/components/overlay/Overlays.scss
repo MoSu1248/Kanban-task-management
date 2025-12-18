@@ -1,0 +1,31 @@
+@use "../../styles/mixins" as *;
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-black-dim);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    height: fit-content;
+    min-width: 480px;
+    background-color: var(--primary-white);
+    padding: 2rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    textarea {
+      min-height: 3rem;
+    }
+
+    input,
+    textarea {
+      @include input-styling;
+    }
+  }
+}

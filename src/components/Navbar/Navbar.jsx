@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import Nav from "../Nav/Nav";
 import NavToggle from "../navToggle/NavToggleHide";
 import ThemeToggler from "../themeToggle/ThemeToggler";
-import { useNavTogglerStore } from "../stories/useNavTogglerStore";
+import { useNavTogglerStore } from "../stores/useNavTogglerStore";
 import * as motion from "motion/react-client";
 
 export default function Navbar() {

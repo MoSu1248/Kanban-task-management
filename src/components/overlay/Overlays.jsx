@@ -13,7 +13,7 @@ import Cross from "../../assets/icon-cross.svg?react";
 export default function Overlays() {
   const modalOpen = useModalStore((state) => state.modalState);
   const closeModal = useModalStore((state) => state.toggleModalClose);
-  const { modalType } = useModalStore();
+  const { modalType, payload } = useModalStore();
   const modalComponent = {
     ADD__TASK: AddTaskPopup,
     ADD__BOARD: AddBoardPopup,
@@ -28,12 +28,12 @@ export default function Overlays() {
   return (
     <>
       {modalOpen && (
-        <div className="overlay" onClick={closeModal}>
+        <div className="overlay">
           <div className="overlay__wrapper">
             <button type="button" className="close-btn" onClick={closeModal}>
               <Cross />
             </button>
-            {ModalComponent ? <ModalComponent /> : null}
+            {ModalComponent ? <ModalComponent payload={payload} /> : null}
           </div>
         </div>
       )}

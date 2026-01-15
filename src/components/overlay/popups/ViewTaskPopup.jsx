@@ -1,8 +1,23 @@
 import React from "react";
 import Cross from "../../../assets/icon-cross.svg?react";
 import Elipsis from "../../../assets/icon-vertical-ellipsis.svg?react";
+import { useModalStore } from "../../stores/useModalStore";
+import data from "../../../data/data.json";
 
-export default function ViewTaskPopup() {
+export default function ViewTaskPopup({ payload }) {
+  const { columnId, taskId } = payload;
+
+  console.log(payload);
+
+  // // Find the board
+  // const board = data.boards.find((b) => b.name === boardId);
+
+  // // Find the column
+  // const column = board.columns.find((c) => c.name === columnId);
+
+  // // Find the task
+  // const task = column.tasks.find((t) => t.title === taskId);
+
   return (
     <form className="overlay__container">
       <div className="overlay__header">

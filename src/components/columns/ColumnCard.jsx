@@ -11,7 +11,13 @@ export default function ColumnCard({
   const modalOpen = useModalStore((state) => state.toggleModalOpen);
 
   return (
-    <li key={i} onClick={() => modalOpen("VIEW__TASK")}>
+    <li key={i} onClick={() =>
+      modalOpen("VIEW__TASK", {
+        // boardId: board.name,
+        columnId: column,
+        taskId: task
+      
+      })}>
       {task.title}
       <span className="subtasks">
         ({completedCount} of {totalCount} subtasks completed )

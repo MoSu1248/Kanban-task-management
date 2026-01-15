@@ -19,7 +19,14 @@ export default function Home() {
       {dataList?.columns?.map((column, index) => (
         <Columns column={column} index={index} />
       ))}
-      <button className="column__add-btn" onClick={() => modalOpen("EDIT__BOARD")}>
+      <button
+        className="column__add-btn"
+        onClick={() =>
+          modalOpen("EDIT__BOARD", {
+            boardId: selectedBoardId,
+          })
+        }
+      >
         + New Column
       </button>
     </div>

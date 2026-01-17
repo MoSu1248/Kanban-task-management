@@ -4,14 +4,14 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: var(--primary-black-dim);
+  background-color: var(--bg-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
 
   &__wrapper {
-    background-color: var(--primary-white);
+    background-color: var(--bg-surface);
     border-radius: 6px;
     padding: 3em 2rem;
     position: relative;
@@ -26,7 +26,7 @@
       border-bottom-left-radius: 6px;
       width: 2.5rem;
       height: 2.5rem;
-      background-color: var(--primary-blue);
+      background-color: var(--action-primary);
       box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
         rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
       svg {
@@ -35,7 +35,7 @@
       transition: 0.3s ease-out;
 
       &:hover {
-        background-color: var(--primary-purple);
+        background-color: var(--action-primary-hover);
         width: 2.8rem;
         height: 2.8rem;
       }
@@ -43,7 +43,7 @@
   }
 
   .overlay__description {
-    @include heading((body-l), var(--grey-slate));
+    @include heading((body-l), var(--text-muted));
     font-weight: var(--primary-weight-medium);
   }
 
@@ -76,7 +76,7 @@
   }
 
   .overlay__label {
-    @include heading((body-m), var(--grey-slate));
+    @include heading((body-m), var(--text-muted));
   }
 
   textarea {
@@ -108,26 +108,26 @@
   }
   .overlay__button {
     @include btn-styling(
-      var(--primary-white),
-      var(--primary-blue),
-      var(--primary-purple)
+      var(--bg-surface),
+      var(--action-primary),
+      var(--action-primary-hover)
     );
   }
   .overlay__button-column {
     @include btn-styling(
-      var(--primary-blue),
-      var(--primary-blue-dim),
-      var(--primary-purple)
+      var(--action-primary),
+      var(--action-primary-muted),
+      var(--action-primary-hover)
     );
   }
 
   .overlay__delete-header {
-    @include heading((l), var(--primary-red));
+    @include heading((l), var(--action-danger));
     font-weight: var(--primary-weight-bold);
   }
 
   .overlay__delete-text {
-    @include heading((body-l), var(--grey-slate));
+    @include heading((body-l), var(--text-muted));
     font-weight: var(--primary-weight-medium);
     margin: 0.4rem 0;
     line-height: var(--primary-lheight-body-l);
@@ -138,17 +138,17 @@
     gap: 1rem;
     .overlay__button-delete {
       @include btn-styling(
-        var(--primary-white),
-        var(--primary-red),
-        var(--primary-purple)
+        var(--bg-surface),
+        var(--action-danger),
+        var(--action-primary-hover)
       );
       width: 50%;
     }
     .overlay__button-cancel {
       @include btn-styling(
-        var(--primary-blue),
-        var(--primary-blue-dim),
-        var(--primary-purple)
+        var(--action-primary),
+        var(--action-primary-muted),
+        var(--action-primary-hover)
       );
       width: 50%;
     }
@@ -164,13 +164,13 @@
     display: flex;
     padding: 1rem;
     gap: 1rem;
-    background-color: var(--grey-cloud);
+    background-color: var(--bg-app);
     border-radius: 4px;
     cursor: pointer;
 
     input[type="checkbox"] {
       accent-color: var(
-        --primary-blue
+        --action-primary
       ); /* Changes the checkbox color to a blue */
       /* You can also adjust size using width and height or transform: scale() */
       min-width: 20px;
@@ -180,7 +180,7 @@
 
     .checkbox__label {
       cursor: pointer;
-      @include heading((body-m), var(--grey-slate));
+      @include heading((body-m), var(--text-muted));
 
       &.checked {
         text-decoration: line-through;

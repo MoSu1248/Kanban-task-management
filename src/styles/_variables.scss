@@ -43,6 +43,66 @@
   --primary-weight-medium: 500;
 }
 
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-app: var(--grey-cloud);
+  --bg-surface: var(--primary-white);
+  --bg-surface-alt: var(--grey-mist);
+  --bg-overlay: var(--primary-black-50);
+
+  /* Text */
+  --text-primary: var(--grey-ink);
+  --text-secondary: var(--grey-slate);
+  --text-muted: var(--grey-slate-dim);
+  --text-inverse: var(--primary-white);
+
+  /* Borders */
+  --border-default: var(--grey-mist);
+  --border-muted: var(--grey-slate-dim);
+
+  /* Actions */
+  --action-primary: var(--primary-blue);
+  --action-primary-hover: var(--primary-purple);
+  --action-primary-muted: var(--primary-blue-dim);
+
+  /* Danger */
+  --action-danger: var(--primary-red);
+  --action-danger-hover: var(--primary-salmon);
+
+  /* Focus */
+  --focus-ring: var(--primary-blue);
+}
+
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-app: var(--primary-black);
+  --bg-surface: var(--grey-charcoal);
+  --bg-surface-alt: var(--grey-steel);
+  --bg-overlay: var(--primary-black-dim);
+
+  /* Text */
+  --text-primary: var(--primary-white);
+  --text-secondary: var(--grey-slate);
+  --text-muted: var(--grey-slate-dim);
+  --text-inverse: var(--primary-black);
+
+  /* Borders */
+  --border-default: var(--grey-steel);
+  --border-muted: var(--primary-black-50);
+
+  /* Actions */
+  --action-primary: var(--primary-blue);
+  --action-primary-hover: var(--primary-purple);
+  --action-primary-muted: var(--primary-blue-dim);
+
+  /* Danger */
+  --action-danger: var(--primary-red);
+  --action-danger-hover: var(--primary-salmon);
+
+  /* Focus */
+  --focus-ring: var(--primary-purple);
+}
+
 /* SCSS VARIABLES  */
 /* Breakpoints */
 $bp-mobile: 40.625em; // 600px

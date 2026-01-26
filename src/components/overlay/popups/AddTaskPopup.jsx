@@ -7,7 +7,7 @@ import { useModalStore } from "../../stores/useModalStore";
 
 export default function AddTaskPopup() {
   const { selectedBoardId } = userBoardStore();
-  const [col, setCol] = useState("Todo");
+  const [col, setCol] = useState();
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
   const [subtasks, setSubtasks] = useState([{ title: "", isCompleted: false }]);
@@ -95,6 +95,7 @@ export default function AddTaskPopup() {
       </ul>
       <button
         type="overlay__button"
+        className="overlay__button-column"
         onClick={() =>
           setSubtasks((prev) => [...prev, { title: "", isCompleted: false }])
         }

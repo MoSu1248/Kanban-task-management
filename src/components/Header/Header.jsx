@@ -6,10 +6,12 @@ import Elipsis from "../../assets/icon-vertical-ellipsis.svg?react";
 import * as motion from "motion/react-client";
 import { useModalStore } from "../stores/useModalStore";
 import { useThemeStore } from "../stores/useThemeStore";
+import { useOptionsStore } from "../stores/useOptionsStore";
 
 export default function Header() {
   const modalOpen = useModalStore((state) => state.toggleModalOpen);
   const theme = useThemeStore((state) => state.theme);
+  const toggleOptions = useOptionsStore((state) => state.toggleOptions);
 
   return (
     <motion.div
@@ -29,7 +31,7 @@ export default function Header() {
         >
           + Add New Task
         </button>
-        <Elipsis />
+        <Elipsis onClick={toggleOptions} />
       </div>
     </motion.div>
   );

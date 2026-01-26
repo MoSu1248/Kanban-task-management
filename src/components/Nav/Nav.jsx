@@ -28,6 +28,7 @@ export default function Nav() {
           }
           key={index}
           onClick={() => {
+            console.log(selectedBoardId);
             setSelectedBoardId(item.name);
           }}
         >

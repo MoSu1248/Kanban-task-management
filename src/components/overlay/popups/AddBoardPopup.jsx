@@ -30,6 +30,7 @@ export default function AddBoardPopup() {
       updated[index] = {
         ...updated[index],
         name: value,
+        tasks: [],
       };
       return updated;
     });
@@ -72,7 +73,7 @@ export default function AddBoardPopup() {
       </ul>
       <button
         className="overlay__button-column"
-        onClick={() => setStatus((prev) => [...prev, { status: "" }])}
+        onClick={() => setStatus((prev) => [...prev, { name: "" }])}
       >
         + Add New Column
       </button>

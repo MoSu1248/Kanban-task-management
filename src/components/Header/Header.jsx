@@ -7,11 +7,13 @@ import * as motion from "motion/react-client";
 import { useModalStore } from "../stores/useModalStore";
 import { useThemeStore } from "../stores/useThemeStore";
 import { useOptionsStore } from "../stores/useOptionsStore";
+import Options from "../options/options";
 
 export default function Header() {
   const modalOpen = useModalStore((state) => state.toggleModalOpen);
   const theme = useThemeStore((state) => state.theme);
   const toggleOptions = useOptionsStore((state) => state.toggleOptions);
+  const { optionsState } = useOptionsStore();
 
   return (
     <motion.div
@@ -31,7 +33,12 @@ export default function Header() {
         >
           + Add New Task
         </button>
-        <Elipsis onClick={toggleOptions} />
+        <div className="options__container">
+          <button className="options__btn" onClick={toggleOptions}>
+            <Elipsis />
+            {optionsState && <Options />}
+          </button>
+        </div>
       </div>
     </motion.div>
   );

@@ -1,15 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import { doc, getDoc , updateDoc } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
+import { userBoardStore } from "../../stores/useBoardStore";
 
-export default function DeleteTaskPopup() {
+export default function DeleteTaskPopup({ payload }) {
+  const { task, columnId } = payload;
+  const { selectedBoardId } = userBoardStore();
+  const [current, setCurrent] = useState();
+
+  const message = ` Are you sure you want to delete the ‘${task.title}’ task and its
+        subtasks? This action cannot be reversed.`;
+
+  const handleSubmit = async () => {
+    try {
+      const boardRef = doc(db, "Boards", selectedBoardId);
+      const boardSnap = await getDoc(boardRef);
+      const boardData = boardSnap.data();
+
+      const updatedColumns = boardData.columns.map((column) => {
+        if (column.name === columnId) {
+          const updatedTasks = column.tasks.filter(
+            (taskItem) => taskItem.title !== task.title,
+          );
+
+          return {
+            ...column,
+            tasks: updatedTasks,
+          };
+        }
+
+        return column;
+      });
+
+      await updateDoc(boardRef, { columns: updatedColumns });
+
+      console.log("Task deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
+  };
+
   return (
-    <form className="overlay__container">
-      <h3 className="overlay__delete-header overlay__header">Delete this task?</h3>
-      <p className="overlay__delete-text">
-        Are you sure you want to delete the ‘Build settings UI’ task and its
-        subtasks? This action cannot be reversed.
-      </p>
+    <form className="overlay__container" onSubmit={(e) => e.preventDefault()}>
+      <h3 className="overlay__delete-header overlay__header">
+        Delete this task?
+      </h3>
+      <p className="overlay__delete-text">{message}</p>
       <div className="overlay__delete-btns">
-        <button className="overlay__button-delete">Delete</button>
+        <button
+          className="overlay__button-delete"
+          onClick={() => handleSubmit()}
+        >
+          Delete
+        </button>
         <button className="overlay__button-cancel">Cancel</button>
       </div>
     </form>

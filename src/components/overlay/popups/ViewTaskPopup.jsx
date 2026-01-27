@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Cross from "../../../assets/icon-cross.svg?react";
 import Elipsis from "../../../assets/icon-vertical-ellipsis.svg?react";
 import { useModalStore } from "../../stores/useModalStore";
-import data from "../../../data/data.json";
+import { useOverlayOptionsStore } from "../../stores/useOverlayOptionsStore";
+import OverlayOptions from "../../overlayOptions/OverlayOptions";
 
 export default function ViewTaskPopup({ payload }) {
   const { columnId, task } = payload;
-
   const [taskState, setTaskState] = useState(task);
+
+  const { overlayOptionsState } = useOverlayOptionsStore();
+  const toggleOptions = useOverlayOptionsStore((state) => state.toggleOptions);
 
   function toggleSubtask(index) {
     setTaskState((prev) => {
@@ -24,17 +27,21 @@ export default function ViewTaskPopup({ payload }) {
     });
   }
 
-
   const completedCount =
     taskState.subtasks?.filter((st) => st.isCompleted).length || 0;
   const totalCount = taskState.subtasks?.length || 0;
   return (
-    <form className="overlay__container">
+    <form className="overlay__container" onSubmit={(e) => e.preventDefault()}>
       <div className="overlay__header">
         <h3>{taskState.title}</h3>
-        <button className="overlay__options">
-          <Elipsis />
-        </button>
+        <div className="options__container">
+          <button className="options__btn" onClick={toggleOptions}>
+            <Elipsis />
+            {overlayOptionsState && (
+              <OverlayOptions task={task} columnId={columnId} />
+            )}
+          </button>
+        </div>
       </div>
       <label className="overlay__description" htmlFor="addTitle">
         {taskState.description}

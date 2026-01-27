@@ -9,11 +9,14 @@ import EditTaskPopup from "./popups/EditTaskPopup";
 import ViewTaskPopup from "./popups/ViewTaskPopup";
 import { useModalStore } from "../stores/useModalStore";
 import Cross from "../../assets/icon-cross.svg?react";
+import { useOverlayOptionsStore } from "../stores/useOverlayOptionsStore";
 
 export default function Overlays() {
   const modalOpen = useModalStore((state) => state.modalState);
   const closeModal = useModalStore((state) => state.toggleModalClose);
   const { modalType, payload } = useModalStore();
+  const closeOptions = useOverlayOptionsStore((state) => state.closeOptions);
+
   const modalComponent = {
     ADD__TASK: AddTaskPopup,
     ADD__BOARD: AddBoardPopup,
@@ -25,12 +28,21 @@ export default function Overlays() {
   };
   const ModalComponent = modalComponent[modalType];
 
+  function onClose() {
+    closeModal();
+    closeOptions();
+  }
+
   return (
     <>
       {modalOpen && (
         <div className="overlay">
           <div className="overlay__wrapper">
-            <button type="button" className="close-btn" onClick={closeModal}>
+            <button
+              type="button"
+              className="close-btn"
+              onClick={() => onClose()}
+            >
               <Cross />
             </button>
             {ModalComponent ? <ModalComponent payload={payload} /> : null}

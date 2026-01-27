@@ -23,7 +23,7 @@ export default function AddTaskPopup() {
     });
   }
 
-  const handleSubmit = async () => {
+const handleSubmit = async () => {
     const newTask = {
       title,
       description: desc,
@@ -44,7 +44,7 @@ export default function AddTaskPopup() {
     } catch (error) {
       console.error("Error adding task:", error);
     }
-  };
+};
 
   return (
     <form className="overlay__container" onSubmit={(e) => e.preventDefault()}>

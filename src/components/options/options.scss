@@ -1,5 +1,50 @@
+@use "../../styles/mixins" as *;
+
 .options {
   position: absolute;
-  top: 0;
+  top: 50px;
   right: 0;
+  background-color: var(--bg-surface);
+  width: 192px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 1px 8px 8px 3px #303f5f18;
+  z-index: 4;
+  .options__list {
+    list-style: none;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+
+    .option__item {
+      width: 100%;
+
+      .option__btn {
+        background-color: transparent;
+        border: none;
+        @include heading((body-l), var(--text-secondary));
+        font-weight: var(--primary-weight-medium);
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        padding: 0.2rem;
+        transition: 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+
+          color: var(--action-primary-hover);
+        }
+      }
+
+      .delete__btn {
+        color: var(--action-danger);
+
+        &:hover {
+          color: var(--action-danger-hover);
+        }
+      }
+    }
+  }
 }

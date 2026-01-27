@@ -53,10 +53,14 @@
     justify-content: space-between;
     gap: 1rem;
     color: var(--text-primary);
+    align-items: center;
 
-    .overlay__options {
+    .options__btn {
       background: transparent;
       border: none;
+      background-color: none;
+      cursor: pointer;
+      padding: 0.5rem;
     }
   }
 }

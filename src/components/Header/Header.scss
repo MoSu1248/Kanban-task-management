@@ -41,4 +41,15 @@
       margin-left: auto;
     }
   }
+
+  .options__container {
+    position: relative;
+
+    .options__btn {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      padding: 0.5rem;
+    }
+  }
 }

@@ -10,6 +10,7 @@ import ViewTaskPopup from "./popups/ViewTaskPopup";
 import { useModalStore } from "../stores/useModalStore";
 import Cross from "../../assets/icon-cross.svg?react";
 import { useOverlayOptionsStore } from "../stores/useOverlayOptionsStore";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function Overlays() {
   const modalOpen = useModalStore((state) => state.modalState);
@@ -36,8 +37,21 @@ export default function Overlays() {
   return (
     <>
       {modalOpen && (
-        <div className="overlay">
-          <div className="overlay__wrapper">
+        <motion.div
+          className="overlay"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <motion.div
+            className="overlay__wrapper"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: "easeOut",
+            }}
+          >
             <button
               type="button"
               className="close-btn"
@@ -46,8 +60,8 @@ export default function Overlays() {
               <Cross />
             </button>
             {ModalComponent ? <ModalComponent payload={payload} /> : null}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </>
   );

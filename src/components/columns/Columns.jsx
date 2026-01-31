@@ -1,6 +1,8 @@
 import React from "react";
 import ColumnCard from "./ColumnCard";
 import "./Columns.scss";
+import { AnimatePresence } from "motion/react";
+
 
 export default function Columns({ column, index }) {
   return (
@@ -21,6 +23,7 @@ export default function Columns({ column, index }) {
               totalCount={totalCount}
               column={column.name}
               key={i}
+              index={i}
             />
           );
         })}

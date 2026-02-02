@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../header/HeaderTemp";
+import Header from "../header/Header";
 import Navbar from "../navbar/Navbar";
 import "./layout.scss";
 import { useNavTogglerStore } from "../stores/useNavTogglerStore";

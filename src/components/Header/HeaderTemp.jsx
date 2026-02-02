@@ -10,7 +10,7 @@ import MobileLogo from "../../assets/logo-mobile.svg?react";
 import { useEffect } from "react";
 import MobileNavContainer from "../mobileNav/MobileNavContainer";
 
-export default function Header() {
+export default function HeaderTemp() {
   const theme = useThemeStore((state) => state.theme);
 
   const [viewportWidth, setViewportWidth] = useState();

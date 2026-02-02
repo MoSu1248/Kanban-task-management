@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Navbar.scss";
+import "./navbar.scss";
 import Nav from "../Nav/Nav";
 import NavToggle from "../navToggle/NavToggleHide";
 import ThemeToggler from "../themeToggle/ThemeToggler";

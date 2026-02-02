@@ -1,7 +1,7 @@
 import React from "react";
 import Elipsis from "../../assets/icon-vertical-ellipsis.svg?react";
 import { useOptionsStore } from "../stores/useOptionsStore";
-import Options from "../options/options";
+import Options from "./Options";
 
 export default function OptionsBtn() {
   const toggleOptions = useOptionsStore((state) => state.toggleOptions);

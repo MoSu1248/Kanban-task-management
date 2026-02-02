@@ -3,11 +3,10 @@
 .header {
   width: 100%;
   display: flex;
-  //   justify-content: space-between;
   align-items: center;
-  //   padding: 0 2rem;
   background-color: var(--bg-surface);
   grid-column: span 2;
+  z-index: 2;
 
   .logo__container {
     width: 18rem;
@@ -17,6 +16,10 @@
     border-right: 1.5px solid var(--bg-surface-alt);
     padding: 0 2rem;
     border-bottom: 1.5px solid var(--bg-surface-alt);
+
+    @media (max-width: 768px) {
+      width: fit-content;
+    }
   }
   .content__container {
     display: flex;
@@ -30,15 +33,6 @@
 
     .content__heading {
       @include heading((xl), var(--text-heading));
-    }
-
-    .content__add-btn {
-      @include btn-styling(
-        var(--action-text),
-        var(--action-primary),
-        var(--action-primary-hover)
-      );
-      margin-left: auto;
     }
   }
 

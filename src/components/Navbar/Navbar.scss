@@ -21,4 +21,8 @@
     @include heading((s), var(--text-secondary));
     padding: 0 2rem;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

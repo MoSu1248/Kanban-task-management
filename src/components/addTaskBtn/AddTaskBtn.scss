@@ -1,0 +1,26 @@
+@use "../../styles/mixins" as *;
+
+.content__add-btn {
+  @include btn-styling(
+    var(--action-text),
+    var(--action-primary),
+    var(--action-primary-hover)
+  );
+  margin-left: auto;
+  @media (max-width: 768px) {
+    padding: 0.3rem 1.5rem;
+  }
+
+  .icon {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .text {
+      display: none;
+    }
+
+    .icon {
+      display: block;
+    }
+  }
+}

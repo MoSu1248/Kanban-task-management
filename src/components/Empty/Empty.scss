@@ -10,6 +10,11 @@
 
   &__text {
     @include heading((l), var(--text-secondary));
+
+    @media (max-width: 768px) {
+      width: 70%;
+      text-align: center;
+    }
   }
 
   &__btn {

@@ -16,8 +16,8 @@ export default function Nav() {
     fetchBoards();
   }, [fetchBoards]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!boards.length) return <p>No boards found</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (!boards.length) return <p>No boards found</p>;
 
   return (
     <ul className={navDisplay ? `list` : `list list-hide`}>

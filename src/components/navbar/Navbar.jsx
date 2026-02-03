@@ -4,6 +4,7 @@ import NavToggle from "../navToggle/NavToggleHide";
 import ThemeToggler from "../themeToggle/ThemeToggler";
 import { useNavTogglerStore } from "../stores/useNavTogglerStore";
 import * as motion from "motion/react-client";
+import { useState } from "react";
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(true);

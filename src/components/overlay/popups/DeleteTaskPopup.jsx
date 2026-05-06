@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { doc, getDoc , updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { userBoardStore } from "../../stores/useBoardStore";
+import { useModalStore } from "../../stores/useModalStore";
 
 export default function DeleteTaskPopup({ payload }) {
   const { task, columnId } = payload;
   const { selectedBoardId } = userBoardStore();
   const [current, setCurrent] = useState();
+  const closeModal = useModalStore((state) => state.toggleModalClose);
 
   const message = ` Are you sure you want to delete the ‘${task.title}’ task and its
         subtasks? This action cannot be reversed.`;
@@ -33,7 +35,7 @@ export default function DeleteTaskPopup({ payload }) {
       });
 
       await updateDoc(boardRef, { columns: updatedColumns });
-
+      closeModal();
       console.log("Task deleted successfully!");
     } catch (error) {
       console.error("Error deleting task:", error);

@@ -6,7 +6,7 @@ import { db } from "../../../firebase/firebase";
 
 export default function EditBoardPopup() {
   const { selectedBoardId, boards } = userBoardStore();
-  const [currnetColumns, setCurrentColumns] = useState([]);
+  const [currentColumns, setCurrentColumns] = useState([]);
 
   const dataList = boards.find((b) => b.name === selectedBoardId);
 
@@ -40,7 +40,7 @@ export default function EditBoardPopup() {
     try {
       const boardRef = doc(db, "Boards", selectedBoardId);
       await updateDoc(boardRef, {
-        columns: currnetColumns,
+        columns: currentColumns,
       });
     } catch (error) {
       console.error("Error saving board:", error);
@@ -72,7 +72,7 @@ export default function EditBoardPopup() {
       <label className="overlay__label" htmlFor="subTasks">
         Columns
       </label>
-      {currnetColumns?.map((column, index) => (
+      {currentColumns?.map((column, index) => (
         <div>
           <ul className="subTasks">
             <li className="subTask" key={index}>
@@ -101,6 +101,7 @@ export default function EditBoardPopup() {
       ))}
       <button
         className="overlay__button-column"
+        type="button"
         onClick={() =>
           setCurrentColumns((prev) => [...prev, { name: "", tasks: [] }])
         }

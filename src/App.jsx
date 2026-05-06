@@ -10,11 +10,9 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
   return (
-    <>
-      <Layout>
-        <Home />
-      </Layout>
-    </>
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
 

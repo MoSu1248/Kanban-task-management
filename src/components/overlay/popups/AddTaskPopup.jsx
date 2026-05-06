@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import Cross from "../../../assets/icon-cross.svg?react";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
@@ -125,7 +125,9 @@ export default function AddTaskPopup() {
             {dataList?.columns?.map((column, index) => (
               <button
                 key={index}
-                onClick={() => setCol(column.name)}
+                onClick={() => {
+                  (setCol(column.name), setDropDownState(!dropDownState));
+                }}
                 className="drop__option"
               >
                 {column.name}

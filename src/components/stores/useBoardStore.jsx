@@ -13,6 +13,7 @@ export const userBoardStore = create((set) => ({
         id: doc.id,
         ...doc.data(),
       }));
+      
       set((state) => ({
         boards: boardsData,
         selectedBoardId: state.selectedBoardId ?? boardsData[0]?.id ?? null,

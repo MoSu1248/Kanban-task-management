@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import Cross from "../../../assets/icon-cross.svg?react";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
@@ -15,6 +15,7 @@ export default function AddTaskPopup() {
   const [subtasks, setSubtasks] = useState([{ title: "", isCompleted: false }]);
   const dataList = boards.find((b) => b.name === selectedBoardId);
   const closeModal = useModalStore((state) => state.toggleModalClose);
+  const [dropDownState, setDropDownState] = useState(false);
 
   function handleSubtaskChange(index, value) {
     setSubtasks((prev) => {
@@ -50,7 +51,6 @@ export default function AddTaskPopup() {
       console.error("Error adding task:", error);
     }
   };
-  const [dropDownState, setDropDownState] = useState(false);
 
   return (
     <form className="overlay__container" onSubmit={(e) => e.preventDefault()}>
@@ -115,7 +115,9 @@ export default function AddTaskPopup() {
       <div class="dropdown" id="status">
         <button
           class="dropbtn"
-          onClick={() => setDropDownState(!dropDownState)}
+          onClick={() => {
+            setDropDownState(!dropDownState);
+          }}
         >
           {col || "-"}
           {dropDownState == false ? <ChevDown /> : <ChevUp />}
@@ -125,7 +127,9 @@ export default function AddTaskPopup() {
             {dataList?.columns?.map((column, index) => (
               <button
                 key={index}
-                onClick={() => setCol(column.name)}
+                onClick={() => {
+                  (setCol(column.name), setDropDownState(!dropDownState));
+                }}
                 className="drop__option"
               >
                 {column.name}

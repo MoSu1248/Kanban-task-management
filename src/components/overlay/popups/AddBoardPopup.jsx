@@ -72,6 +72,7 @@ export default function AddBoardPopup() {
         ))}
       </ul>
       <button
+        type="button"
         className="overlay__button-column"
         onClick={() => setStatus((prev) => [...prev, { name: "" }])}
       >

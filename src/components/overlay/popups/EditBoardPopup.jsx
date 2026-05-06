@@ -8,8 +8,6 @@ export default function EditBoardPopup() {
   const { selectedBoardId, boards } = userBoardStore();
   const [currnetColumns, setCurrentColumns] = useState([]);
 
-  const dataList = boards.find((b) => b.name === selectedBoardId);
-
   const GetColumns = async () => {
     try {
       const boardRef = doc(db, "Boards", selectedBoardId);
@@ -100,6 +98,7 @@ export default function EditBoardPopup() {
         </div>
       ))}
       <button
+        type="button"
         className="overlay__button-column"
         onClick={() =>
           setCurrentColumns((prev) => [...prev, { name: "", tasks: [] }])

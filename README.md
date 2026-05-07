@@ -1,10 +1,10 @@
-# CineFlow
+# Kanban Task Management 
 
 ![Project Preview](./src/assets/screenshots/Home.png)
 
 ## Overview
 
-CineFlow is a Netflix-inspired movie discovery platform built with React, designed to replicate a modern streaming experience with real-time interactivity and smooth UI transitions. The goal of the project was to explore advanced React patterns, API integration, and dynamic UI behaviour in a real-world styled application.
+A Kanban-based task management application built with React, Zustand, and Firestore, designed to provide a smooth and intuitive workflow for organising tasks across boards and columns. The focus of the project was on state-driven UI architecture, real-time data handling, and building a responsive, production-style interface.
 
 ## Live Demo
 

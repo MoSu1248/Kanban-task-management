@@ -1,16 +1,51 @@
-# React + Vite
+# CineFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project Preview](./src/assets/screenshots/Home.png)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CineFlow is a Netflix-inspired movie discovery platform built with React, designed to replicate a modern streaming experience with real-time interactivity and smooth UI transitions. The goal of the project was to explore advanced React patterns, API integration, and dynamic UI behaviour in a real-world styled application.
 
-## React Compiler
+## Live Demo
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+🔗 [Live Site](https://kanbantaskmangement.netlify.app/) · [GitHub Repo](https://github.com/MoSu1248/Kanban-task-management)
 
-## Expanding the ESLint configuration
+## Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript
+- SCSS
+- Zustand
+- Firebase / Firestore
+- Framer Motion
+- Vite
+
+## Features
+
+-Kanban-style task management across multiple boards and columns
+-Centralized state management using Zustand for predictable UI updates
+-Real-time data persistence and synchronization with Firestore
+-Fully responsive layout optimized for desktop, tablet, and mobile
+-Dynamic UI updates for seamless task creation, editing, and movement
+
+## Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/MoSu1248/your-repo.git
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev
+```
+
+## Screenshots
+
+![Screenshot 1](./src/assets/screenshots/AddTask.png)
+![Screenshot 2](./src/assets/screenshots/DarkMode.png)
+
+## Author
+
+Mohammed Suhail Rahman · [Portfolio](https://mscreatdev.netlify.app/) · [GitHub](https://github.com/MoSu1248)
